@@ -1,0 +1,51 @@
+<%- include("./parts/header.ejs")%>
+    <%- include("./parts/nav.ejs")%>
+        <div class="select_container container">
+            <form action="/" method="get">
+                <select name="category" id="">
+                    <option value="" hidden>choose category</option>
+                    <option value="all">all</option>
+                    <option value="clothes">clothes</option>
+                    <option value="mobiles">mobiles</option>
+                    <option value="cars">cars</option>
+                </select>
+                <button type="submit" class="btn btn-primary">select</button>
+            </form>
+        </div>
+
+        <div class="container" style="padding-top: 8px;">
+            <div class="row">
+                <% for(let product of products){%>
+                    <div class="col col-12 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card" style="width: 18rem;">
+                            <div class="image-holder" style="height: 270px;">
+                                <img src="<%=product.image%>" class="card-img-top" style="height: 100%;" alt="...">
+                            </div>
+                            <div class="card-body">
+                                <h2 class="card-title" style="text-align: center;">
+                                    <a href="/product/<%=product._id%>">
+                                        <%=product.name%>
+                                    </a>
+                                </h2>
+                                <h5 class="card-text" style="text-align: center;">
+                                    category: <%=product.category%>
+                                </h5>
+                                <form action="/cart" method="post">
+                                    <input type="text" placeholder="Enter product amount" name="amount" id=""
+                                        style="display: block;margin:auto;padding-left:8px">
+                                    <input type="hidden" name="id" id="" value="<%=product._id%>">
+                                    <input type="hidden" name="name" id="" value="<%=product.name%>">
+                                    <input type="hidden" name="price" id="" value="<%=product.price%>">
+
+
+
+                                    <input type="submit" value="order" class="btn btn-primary"
+                                        style="display: block;margin:auto;margin-top:10px">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <%}%>
+            </div>
+        </div>
+        <%- include("./parts/footer.ejs")%>

@@ -1,0 +1,21 @@
+<%- include("./parts/header.ejs")%>
+    <%- include("./parts/nav.ejs")%>
+        <div class="addformcontainer">
+            <h1>Add item</h1>
+            <form action="/Additem" method="post" enctype="multipart/form-data">
+                <input type="text" name="name" id="" placeholder="product-name">
+                <input type="text" name="price" id="" placeholder="product-price">
+                <select name="category" id="">
+                    <option value="" hidden> select the category </option>
+                    <option value="cars">cars</option>
+                    <option value="clothes">clothes</option>
+                    <option value="bicycles">bicycles</option>
+                    <option value="mobiles">mobiles</option>
+                </select>
+
+                <input type="file" name="image" id="" placeholder="product-name">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+
+        <%- include("./parts/footer.ejs")%>

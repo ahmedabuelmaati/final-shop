@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="font-weight: bold;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Online-shop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="container" style="display: flex;justify-content:space-between">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+
+
+                    <%if(isuser){%>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cart">Cart</a>
+                        </li>
+
+                        <%}else{%>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/signup">sign-up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">log_in</a>
+                            </li>
+                            <%}%>
+                                <%if(isadmin==="true"){%>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Additem">Additem</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/manage-orders">Manage-orders</a>
+                                    </li>
+                                    <%}%>
+                                        <!-- <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li> -->
+                </ul>
+                <%if(isuser){%>
+                    <form action="/logout" method="post">
+                        <button type="submit" class="btn btn-danger">log-out</button>
+                    </form>
+                    <%}%>
+            </div>
+
+        </div>
+    </div>
+</nav>

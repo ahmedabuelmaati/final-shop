@@ -1,0 +1,51 @@
+<%- include("./parts/header.ejs")%>
+    <%- include("./parts/nav.ejs")%>
+        <div class="sign_up_container">
+            <form action="/signup" method="post">
+                <input type="text" name="name" id="" class="form-control" placeholder="enter your name">
+                <% let e1=err.find(err=>err.path=="name")%>
+                    <%if(e1){%>
+                        <p class="alert alert-danger" style="text-align: center;margin-top:10px;">
+
+                            <%=e1.msg%>
+
+                        </p>
+                        <%}%>
+                            <input type="email" name="email" id="" class="form-control" placeholder="enter your email">
+                            <% let e2=err.find(err=>err.path=="email")%>
+                                <%if(e2){%>
+                                    <p class="alert alert-danger" style="text-align: center;margin-top:10px;">
+
+                                        <%=e2.msg%>
+
+                                    </p>
+                                    <%}%>
+                                        <input type="password" name="password" id="" class="form-control"
+                                            placeholder="enter your password">
+                                        <% let e3=err.find(err=>err.path=="password")%>
+                                            <%if(e3){%>
+                                                <p class="alert alert-danger"
+                                                    style="text-align: center;margin-top:10px;">
+
+                                                    <%=e3.msg%>
+
+                                                </p>
+                                                <%}%>
+                                                    <input type="password" name="confirm-password" class="form-control"
+                                                        id="" placeholder="confirm your password">
+                                                    <% let e4=err.find(err=>err.path=="confirm-password")%>
+                                                        <%if(e4){%>
+                                                            <p class="alert alert-danger"
+                                                                style="text-align: center;margin-top:10px;">
+
+                                                                <%=e4.msg%>
+
+                                                            </p>
+                                                            <%}%>
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">sign_up</button>
+
+            </form>
+        </div>
+
+        <%- include("./parts/footer")%>

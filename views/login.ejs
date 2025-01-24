@@ -1,0 +1,32 @@
+<%- include("./parts/header")%>
+    <%- include("./parts/nav")%>
+        <div class="logincontainer">
+            <form action="/login" method="post">
+                <input type="email" name="email" id="login-email" placeholder="enter your email">
+
+                <% let e1=err.find(err=>err.path === "email")%>
+                    <%if(e1){%>
+                        <p class="alert alert-danger"
+                            style=" text-align:center;width: 60%;margin:auto;margin-top: 15px;">
+                            <%=e1.msg%>
+                        </p>
+                        <%}%>
+
+
+                            <input type="password" name="password" id="login-password"
+                                placeholder="enter your password">
+                            <% let e2=err.find(err=>err.path==="password")%>
+                                <% console.log(e2)%>
+                                    <%if(e2){%>
+                                        <p class="alert alert-danger"
+                                            style=" text-align:center;width: 60%;margin:auto;margin-top: 15px;">
+                                            <%=e2.msg%>
+                                        </p>
+                                        <%}%>
+                                            <button type="submit" class="btn btn-primary">login</button>
+            </form>
+
+
+
+        </div>
+        <%- include("./parts/footer")%>
